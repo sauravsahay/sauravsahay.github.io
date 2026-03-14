@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saurav Sahay — AI Research Scientist &amp; Leader</title>
+  <meta name="description" content="Principal AI Research Scientist &amp; Engineering Manager at Intel. Specializing in AI Safety, Responsible AI, Agentic AI Systems, and Conversational AI. Ph.D. Georgia Tech. 14+ years experience.">
+  <meta property="og:title" content="Saurav Sahay — AI Research Scientist &amp; Leader">
+  <meta property="og:description" content="Principal AI Research Scientist at Intel. AI Safety, Agentic AI, Conversational AI. Ph.D. Georgia Tech.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --bg:           #070b18;
+      --bg2:          #0c1020;
+      --card:         #101624;
+      --card-h:       #141b2e;
+      --accent:       #6366f1;
+      --accent-l:     #818cf8;
+      --accent-glow:  rgba(99,102,241,.12);
+      --cyan:         #06b6d4;
+      --green:        #4ade80;
+      --t1:           #f1f5f9;
+      --t2:           #94a3b8;
+      --t3:           #64748b;
+      --border:       rgba(99,102,241,.18);
+      --border-s:     rgba(255,255,255,.06);
+      --grad:         linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+    }
+
+    /* ─── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html  { scroll-behavior: smooth; }
+    body  {
+      background: var(--bg);
+      color: var(--t1);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .875rem 2rem;
+      background: rgba(7,11,24,.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-s);
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 1rem;
+      background: var(--grad);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--t2); font-size: .85rem; font-weight: 500;
+      transition: color .2s; letter-spacing: .01em;
+    }
+    .nav-links a:hover { color: var(--t1); }
+    .nav-mobile-btn { display: none; background: none; border: none; color: var(--t1); cursor: pointer; padding: .25rem; }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh; position: relative;
+      display: flex; align-items: center;
+      padding: 7rem 2rem 5rem;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 15% 50%, rgba(99,102,241,.09) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 70% at 85% 15%, rgba(6,182,212,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 75% 80%, rgba(139,92,246,.05) 0%, transparent 50%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(99,102,241,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 900px; margin: 0 auto; width: 100%;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .3rem .875rem;
+      background: var(--accent-glow);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: .78rem; font-weight: 600; color: var(--accent-l);
+      margin-bottom: 1.75rem; letter-spacing: .03em;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; background: var(--green);
+      border-radius: 50%; animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+
+    h1 {
+      font-size: clamp(2.6rem, 6.5vw, 4.75rem);
+      font-weight: 800; line-height: 1.05; letter-spacing: -.03em;
+      margin-bottom: 1.25rem;
+    }
+    .grad-text {
+      background: var(--grad);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.3rem); color: var(--t2);
+      max-width: 660px; margin-bottom: 2.5rem; line-height: 1.7;
+    }
+    .hero-sub strong { color: var(--t1); font-weight: 600; }
+
+    .cta-row { display: flex; gap: .875rem; flex-wrap: wrap; margin-bottom: 4rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .45rem;
+      padding: .7rem 1.4rem; border-radius: 8px;
+      font-weight: 600; font-size: .875rem; transition: all .2s;
+      letter-spacing: .01em; border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover {
+      background: var(--accent-l);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(99,102,241,.35);
+    }
+    .btn-ghost {
+      background: transparent; color: var(--t1);
+      border-color: var(--border-s);
+    }
+    .btn-ghost:hover {
+      border-color: var(--border); color: var(--accent-l);
+      background: var(--accent-glow);
+    }
+
+    .stats-row { display: flex; gap: 2.75rem; flex-wrap: wrap; }
+    .stat-num {
+      font-size: 2.1rem; font-weight: 800; line-height: 1;
+      background: var(--grad);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-lbl {
+      font-size: .72rem; font-weight: 600; color: var(--t3);
+      text-transform: uppercase; letter-spacing: .08em; margin-top: .2rem;
+    }
+
+    /* ─── LAYOUT HELPERS ─────────────────────────────────── */
+    section { padding: 5.5rem 2rem; }
+    section:nth-child(even) { background: var(--bg2); }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    .sec-label {
+      font-size: .72rem; font-weight: 700; color: var(--accent-l);
+      text-transform: uppercase; letter-spacing: .18em; margin-bottom: .6rem;
+    }
+    .sec-title {
+      font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+      font-weight: 700; letter-spacing: -.025em; line-height: 1.2;
+      margin-bottom: .9rem;
+    }
+    .sec-desc { color: var(--t2); max-width: 580px; line-height: 1.75; margin-bottom: 2.75rem; }
+    .rule { width: 44px; height: 3px; background: var(--grad); border-radius: 2px; margin: .75rem 0 2.5rem; }
+
+    /* ─── EXPERTISE GRID ─────────────────────────────────── */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+      gap: 1.1rem;
+    }
+    .e-card {
+      background: var(--card); border: 1px solid var(--border-s);
+      border-radius: 12px; padding: 1.5rem;
+      transition: all .25s; position: relative; overflow: hidden;
+    }
+    .e-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--grad); opacity: 0; transition: opacity .25s;
+    }
+    .e-card:hover { background: var(--card-h); border-color: var(--border); transform: translateY(-3px); }
+    .e-card:hover::before { opacity: 1; }
+    .e-icon { font-size: 1.8rem; margin-bottom: .875rem; }
+    .e-title { font-size: .95rem; font-weight: 700; margin-bottom: .45rem; }
+    .e-desc { font-size: .825rem; color: var(--t2); line-height: 1.65; }
+
+    /* ─── TIMELINE ───────────────────────────────────────── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 10px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent) 0%, rgba(99,102,241,.08) 90%);
+    }
+    .tl-item {
+      position: relative; margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem; border-bottom: 1px solid var(--border-s);
+    }
+    .tl-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .tl-dot {
+      position: absolute; left: -2.4rem; top: 6px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(99,102,241,.2);
+    }
+    .tl-dot.active {
+      background: var(--green);
+      box-shadow: 0 0 0 3px rgba(74,222,128,.2);
+      animation: blink 2s infinite;
+    }
+    .tl-head {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 1rem;
+      margin-bottom: .3rem; flex-wrap: wrap;
+    }
+    .tl-role { font-size: .975rem; font-weight: 700; }
+    .tl-date {
+      font-family: 'JetBrains Mono', monospace; font-size: .75rem;
+      color: var(--accent-l); white-space: nowrap;
+      background: var(--accent-glow); border: 1px solid var(--border);
+      padding: .18rem .55rem; border-radius: 4px; flex-shrink: 0;
+    }
+    .tl-org { font-size: .85rem; color: var(--t2); font-weight: 500; margin-bottom: .7rem; }
+    .tl-desc { font-size: .85rem; color: var(--t2); line-height: 1.72; }
+
+    /* ─── PUBLICATIONS ───────────────────────────────────── */
+    .pub-list { display: flex; flex-direction: column; gap: .875rem; }
+    .pub-item {
+      background: var(--card); border: 1px solid var(--border-s);
+      border-radius: 10px; padding: 1.2rem 1.4rem; transition: all .2s;
+    }
+    .pub-item:hover { border-color: var(--border); background: var(--card-h); }
+    .pub-title { font-size: .9rem; font-weight: 600; line-height: 1.45; margin-bottom: .35rem; }
+    .pub-authors { font-size: .78rem; color: var(--t2); margin-bottom: .45rem; line-height: 1.5; }
+    .pub-authors strong { color: var(--t1); }
+    .chip {
+      display: inline-block; font-size: .72rem; font-weight: 700;
+      color: var(--accent-l); background: var(--accent-glow);
+      border: 1px solid var(--border); padding: .15rem .5rem;
+      border-radius: 4px; font-family: 'JetBrains Mono', monospace;
+      letter-spacing: .02em;
+    }
+    .pub-link {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-size: .75rem; color: var(--accent-l); margin-left: .6rem;
+      transition: color .2s;
+    }
+    .pub-link:hover { color: #fff; }
+
+    /* ─── WRITING / THOUGHT LEADERSHIP ──────────────────── */
+    .writing-card {
+      display: flex; gap: 1.5rem; align-items: flex-start;
+      background: var(--card); border: 1px solid var(--border-s);
+      border-radius: 14px; padding: 2rem;
+      transition: all .25s; color: inherit;
+    }
+    .writing-card:hover {
+      border-color: var(--border); transform: translateY(-2px);
+      box-shadow: 0 14px 44px rgba(0,0,0,.35);
+    }
+    .w-icon { font-size: 2.5rem; flex-shrink: 0; line-height: 1; }
+    .w-title { font-size: 1.1rem; font-weight: 700; margin-bottom: .45rem; }
+    .w-desc { font-size: .875rem; color: var(--t2); line-height: 1.7; }
+    .w-tag {
+      display: inline-block; margin-top: .75rem;
+      font-size: .72rem; font-weight: 700; color: var(--accent-l);
+      background: var(--accent-glow); border: 1px solid var(--border);
+      padding: .18rem .55rem; border-radius: 4px;
+    }
+
+    /* ─── PATENTS ────────────────────────────────────────── */
+    .patent-list { display: flex; flex-direction: column; gap: .8rem; }
+    .patent-row {
+      display: flex; align-items: flex-start; gap: .875rem;
+      background: var(--card); border: 1px solid var(--border-s);
+      border-radius: 8px; padding: .9rem 1.1rem;
+    }
+    .patent-num {
+      font-family: 'JetBrains Mono', monospace; font-size: .72rem;
+      color: var(--accent-l); background: var(--accent-glow);
+      border: 1px solid var(--border); padding: .18rem .5rem;
+      border-radius: 4px; white-space: nowrap; flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .patent-txt { font-size: .85rem; color: var(--t2); line-height: 1.55; }
+
+    /* ─── EDUCATION ──────────────────────────────────────── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.1rem;
+    }
+    .edu-card {
+      background: var(--card); border: 1px solid var(--border-s);
+      border-radius: 12px; padding: 1.5rem;
+    }
+    .edu-deg { font-size: .95rem; font-weight: 700; margin-bottom: .25rem; }
+    .edu-sch { font-size: .875rem; color: var(--accent-l); font-weight: 600; margin-bottom: .35rem; }
+    .edu-yr  { font-size: .78rem; color: var(--t3); font-family: 'JetBrains Mono', monospace; }
+    .edu-note{ font-size: .78rem; color: var(--t2); margin-top: .4rem; font-style: italic; }
+
+    /* ─── TAGS / SERVICE ─────────────────────────────────── */
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: .55rem; }
+    .tag {
+      padding: .35rem .8rem;
+      background: var(--card); border: 1px solid var(--border-s);
+      border-radius: 100px; font-size: .78rem; font-weight: 500;
+      color: var(--t2); transition: all .2s;
+    }
+    .tag:hover { border-color: var(--border); color: var(--accent-l); background: var(--accent-glow); }
+
+    /* ─── SKILLS ─────────────────────────────────────────── */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.1rem; }
+    .skill-block {
+      background: var(--card); border: 1px solid var(--border-s);
+      border-radius: 10px; padding: 1.25rem;
+    }
+    .skill-label { font-size: .72rem; font-weight: 700; color: var(--accent-l); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .75rem; }
+    .skill-items { display: flex; flex-wrap: wrap; gap: .45rem; }
+    .skill-pill {
+      font-family: 'JetBrains Mono', monospace; font-size: .75rem;
+      color: var(--t2); background: var(--bg); border: 1px solid var(--border-s);
+      padding: .2rem .6rem; border-radius: 4px;
+    }
+
+    /* ─── CONTACT ────────────────────────────────────────── */
+    .contact-grid { display: flex; flex-wrap: wrap; gap: .875rem; }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: .55rem;
+      padding: .65rem 1.1rem;
+      background: var(--card); border: 1px solid var(--border-s);
+      border-radius: 8px; font-size: .875rem; font-weight: 500; color: var(--t2);
+      transition: all .2s;
+    }
+    .contact-link:hover { border-color: var(--border); color: var(--accent-l); background: var(--accent-glow); }
+    .contact-link svg { flex-shrink: 0; }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      padding: 2.75rem 2rem; border-top: 1px solid var(--border-s);
+      text-align: center;
+    }
+    .footer-name { font-size: 1rem; font-weight: 700; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: .35rem; }
+    .footer-sub { font-size: .78rem; color: var(--t3); }
+
+    /* ─── SCROLL ANIMATIONS ──────────────────────────────── */
+    .fadein { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .fadein.vis { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 760px) {
+      nav { padding: .875rem 1.25rem; }
+      .nav-links { display: none; }
+      .nav-mobile-btn { display: block; }
+      section { padding: 4rem 1.25rem; }
+      .stats-row { gap: 1.75rem; }
+      .timeline { padding-left: 1.5rem; }
+      .tl-dot { left: -1.9rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .writing-card { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav>
+  <a href="#hero" class="nav-logo">Saurav Sahay</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-mobile-btn" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'; document.querySelector('.nav-links').style.flexDirection='column'; document.querySelector('.nav-links').style.position='absolute'; document.querySelector('.nav-links').style.top='56px'; document.querySelector('.nav-links').style.left='0'; document.querySelector('.nav-links').style.right='0'; document.querySelector('.nav-links').style.background='rgba(7,11,24,.98)'; document.querySelector('.nav-links').style.padding='1rem 1.25rem 1.5rem'; document.querySelector('.nav-links').style.borderBottom='1px solid rgba(255,255,255,.06)';">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<!-- ═══ HERO ════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Principal Engineer &amp; Research Manager &nbsp;·&nbsp; Intel AI Innovation Group
+    </div>
+    <h1>
+      <span class="grad-text">Saurav Sahay</span><br>
+      AI Researcher &amp; Leader
+    </h1>
+    <p class="hero-sub">
+      14+ years advancing <strong>safe, responsible, and intelligent</strong> AI systems.<br>
+      Specializing in <strong>AI Safety</strong>, <strong>Agentic AI</strong>,
+      <strong>Conversational AI</strong>, and <strong>Multimodal AI</strong>
+      at Intel Labs. Ph.D., Georgia Institute of Technology.
+    </p>
+    <div class="cta-row">
+      <a href="https://www.linkedin.com/in/sauravsahay/" target="_blank" rel="noopener" class="btn btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://twitter.com/sauravsahay" target="_blank" rel="noopener" class="btn btn-ghost">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        @sauravsahay
+      </a>
+      <a href="https://scholar.google.com/citations?hl=en&user=A_Kss_UAAAAJ" target="_blank" rel="noopener" class="btn btn-ghost">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
+        Google Scholar
+      </a>
+    </div>
+    <div class="stats-row">
+      <div><div class="stat-num">14+</div><div class="stat-lbl">Years in AI</div></div>
+      <div><div class="stat-num">30+</div><div class="stat-lbl">Publications</div></div>
+      <div><div class="stat-num">5</div><div class="stat-lbl">Patents</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="wrap fadein">
+    <p class="sec-label">About</p>
+    <h2 class="sec-title">Building AI that is powerful <em>and</em> trustworthy</h2>
+    <div class="rule"></div>
+    <p class="sec-desc" style="max-width:740px; margin-bottom:2rem;">
+      I am a Principal Engineer and Research Engineering Manager at Intel's AI Innovation Group,
+      where I lead research on next-generation <strong>Agentic AI</strong> — including cost-aware planning,
+      routing, guardrails, and orchestration for heterogeneous inference systems. I am simultaneously
+      embedded in Intel's Responsible AI activities, contributing to RAI policy development and
+      internal compliance frameworks.
+    </p>
+    <p class="sec-desc" style="max-width:740px; margin-bottom:2rem;">
+      Beyond Intel, I actively contribute to the <strong>MLCommons AI Risk &amp; Reliability (AIRR)</strong>
+      working group, co-authoring benchmarks and methodologies covering model security, jailbreak
+      robustness, and agentic AI safety evaluation. My research spans the full spectrum of modern AI:
+      from foundational NLP and dialog systems to LLM safety, bias detection, and enterprise AI
+      adaptation for industrial environments.
+    </p>
+    <p class="sec-desc" style="max-width:740px;">
+      I hold a Ph.D. in Computer Science from <strong>Georgia Institute of Technology</strong>, where my
+      dissertation explored Socio-Semantic Conversational Information Access. Before Intel, I built
+      healthcare AI at Siemens, worked on IBM's Watson (DeepQA) project, and co-founded a
+      venture-backed healthcare AI startup. I serve on the program committees of ICML, NeurIPS,
+      ICLR, ACL, EMNLP, and COLM.
+    </p>
+
+    <div style="margin-top:3.5rem;">
+      <p class="sec-label">Core Expertise</p>
+      <div style="height:.5rem;"></div>
+      <div class="expertise-grid">
+        <div class="e-card">
+          <div class="e-icon">🛡️</div>
+          <div class="e-title">AI Safety &amp; Responsible AI</div>
+          <div class="e-desc">LLM safety benchmarking (MLCommons AIRR), jailbreak robustness methodology, RAI policy, bias detection, and production guardrail systems.</div>
+        </div>
+        <div class="e-card">
+          <div class="e-icon">🤖</div>
+          <div class="e-title">Agentic AI Systems</div>
+          <div class="e-desc">Multi-agent architectures with cost-aware planning, routing, and orchestration for heterogeneous inference. Agentic product maturity frameworks.</div>
+        </div>
+        <div class="e-card">
+          <div class="e-icon">💬</div>
+          <div class="e-title">Conversational AI</div>
+          <div class="e-desc">15+ years building dialog systems, NLU pipelines, and task-oriented agents across education, manufacturing, and assistive technology.</div>
+        </div>
+        <div class="e-card">
+          <div class="e-icon">🧠</div>
+          <div class="e-title">Large Language Models</div>
+          <div class="e-desc">Domain adaptation, PEFT, knowledge-enhanced LLMs, red-teaming for enterprise, and bias mitigation through model merging and fine-tuning.</div>
+        </div>
+        <div class="e-card">
+          <div class="e-icon">👁️</div>
+          <div class="e-title">Multimodal AI</div>
+          <div class="e-desc">Vision-language systems, multimodal fusion architectures, emotion understanding, and task guidance systems for industrial smart manufacturing.</div>
+        </div>
+        <div class="e-card">
+          <div class="e-icon">🎓</div>
+          <div class="e-title">Research Leadership</div>
+          <div class="e-desc">Managing distributed teams across US, Mexico, Germany, and Taiwan. University partnerships, grant writing experience, and mentorship.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ══════════════════════════════════════════ -->
+<section id="experience">
+  <div class="wrap fadein">
+    <p class="sec-label">Experience</p>
+    <h2 class="sec-title">Career Timeline</h2>
+    <div class="rule"></div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot active"></div>
+        <div class="tl-head">
+          <span class="tl-role">Principal Engineer &amp; Research Engineering Manager</span>
+          <span class="tl-date">Sept 2025 – Present</span>
+        </div>
+        <div class="tl-org">Multimodal Dialog &amp; Interaction (MDI) · AI Innovation Group · Intel</div>
+        <p class="tl-desc">Leading pathfinding research on Agentic AI systems: cost-aware planning, routing, guardrails, and orchestration within heterogeneous inference system development. Core contributor to Intel's Responsible AI policy development and internal compliance programs.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot active"></div>
+        <div class="tl-head">
+          <span class="tl-role">Contributor / Volunteer</span>
+          <span class="tl-date">Jan 2024 – Present</span>
+        </div>
+        <div class="tl-org">MLCommons AI Risk &amp; Reliability (AIRR) Working Group</div>
+        <p class="tl-desc">Active contributor on LLM model evaluations, security (jailbreaks), and agentic benchmark development. Co-author of the AI Safety Benchmark v0.5 and the jailbreak robustness methodology pre-print.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <span class="tl-role">Principal Engineer &amp; AI Research Science Manager</span>
+          <span class="tl-date">Feb 2024 – Aug 2025</span>
+        </div>
+        <div class="tl-org">Multimodal Dialog &amp; Interaction Lab · Intelligent Systems Research Division · Intel Labs</div>
+        <p class="tl-desc">Led a team on LLM applications spanning Responsible AI and Agentic AI: domain adaptation for enterprise data, agentic analytics for semiconductor manufacturing sensor data, and multimodal task guidance for industrial smart manufacturing.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <span class="tl-role">Staff Scientist &amp; Manager</span>
+          <span class="tl-date">Feb 2019 – Jan 2024</span>
+        </div>
+        <div class="tl-org">Multimodal Dialog &amp; Interaction Lab · Intelligent Systems Research Division · Intel Labs</div>
+        <p class="tl-desc">Led a globally distributed team of scientists and contractors across the US, Mexico, Germany, and Taiwan. Delivered projects in education (multimodal dialog systems), manufacturing (vision-language systems), collaboration (multimodal meeting assistance), and assistive computing. Managed university-funded research on Few-Shot Learning and Dialog Systems. Core member of Intel's Responsible AI Council.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <span class="tl-role">Senior Research Scientist</span>
+          <span class="tl-date">Feb 2017 – Feb 2019</span>
+        </div>
+        <div class="tl-org">Anticipatory Computing Lab · Software &amp; System Research Division · Intel Labs</div>
+        <p class="tl-desc">Multimodal emotion understanding and dialog systems. Extended NLU and dialog management algorithms for the open-source Rasa platform. Led researchers and interns in a tech-lead capacity.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <span class="tl-role">Research Scientist</span>
+          <span class="tl-date">Oct 2012 – Feb 2017</span>
+        </div>
+        <div class="tl-org">Anticipatory Computing Lab · Software &amp; System Research Division · Intel Labs</div>
+        <p class="tl-desc">Developed the Cognitive Linguistics Information Platform featuring keyterm extraction, intent recognition, colloquial text normalization, knowledge-based missing information fulfillment, topic discovery, and sentiment analysis.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <span class="tl-role">Research Scientist</span>
+          <span class="tl-date">Aug 2011 – Oct 2012</span>
+        </div>
+        <div class="tl-org">Translational Informatics &amp; Special Projects · Siemens Corporate Research · Princeton, NJ</div>
+        <p class="tl-desc">Healthcare decision support, text analytics, semantic search, ontology-based reasoning, and data mining for patient-physician information systems.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <span class="tl-role">CTO &amp; Co-founder</span>
+          <span class="tl-date">Aug 2010 – July 2011</span>
+        </div>
+        <div class="tl-org">Cobot Health Corporation · Georgia Tech VentureLab Spin-out</div>
+        <p class="tl-desc">Founded a healthcare AI startup based on dissertation research with venture funding from Georgia Tech's VentureLab. Developed and deployed the Cobot Intelligent Assistant widget on a third-party platform.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <span class="tl-role">Research Intern</span>
+          <span class="tl-date">Summers 2005, 2006, 2010</span>
+        </div>
+        <div class="tl-org">IBM T.J. Watson Research Center · Hawthorne, NY &amp; New Delhi, India</div>
+        <p class="tl-desc">Contributed to the Watson (DeepQA) project with the medical team. Built biomedical semantic search and relation extraction systems. Customized the Slot Grammar Parser for medical ontologies and ontology-based semantic distances for improved answer-type detection.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RESEARCH ════════════════════════════════════════════ -->
+<section id="research">
+  <div class="wrap fadein">
+    <p class="sec-label">Research</p>
+    <h2 class="sec-title">Selected Publications</h2>
+    <div class="rule"></div>
+    <p class="sec-desc">Recent and representative work — spanning AI Safety, Agentic AI, LLMs, and Conversational AI. Full list on Google Scholar.</p>
+
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-title">A Robust, Defensible, and Reproducible Methodology for Benchmarking Single-Turn Jailbreak Attacks on Large Language Models</div>
+        <div class="pub-authors">Carsten Maple, <strong>Saurav Sahay</strong>, et al.</div>
+        <span class="chip">MLCommons · 2026</span>
+        <a href="https://mlcommons.org/wp-content/uploads/2026/02/MLCommons___Security___Jailbreak_0_7_Paper_Collaborative.pdf" target="_blank" rel="noopener" class="pub-link">↗ Paper</a>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Agentic Product Maturity Ladder V0.1</div>
+        <div class="pub-authors">Sean McGregor, <strong>Saurav Sahay</strong>, et al.</div>
+        <span class="chip">MLCommons · 2026</span>
+        <a href="https://mlcommons.org/wp-content/uploads/2026/02/release_candidate_1.pdf" target="_blank" rel="noopener" class="pub-link">↗ Paper</a>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">AILuminate: Introducing v1.0 of the AI Risk and Reliability Benchmark from MLCommons</div>
+        <div class="pub-authors">Shaona Ghosh, <strong>Saurav Sahay</strong>, et al.</div>
+        <span class="chip">ArXiv 2503.05731 · 2025</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Safeguard Fine-Tuned LLMs Through Pre- and Post-Tuning Model Merging</div>
+        <div class="pub-authors">Hua Farn, Hsuan Su, Shachi H Kumar, <strong>Saurav Sahay</strong>, Shang-Tse Chen, Hung-yi Lee</div>
+        <span class="chip">EMNLP Findings · 2025</span>
+        <a href="https://arxiv.org/abs/2412.19512" target="_blank" rel="noopener" class="pub-link">↗ ArXiv</a>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Thoughts without Thinking: Reconsidering the Explanatory Value of Chain-of-Thought Reasoning in LLMs through Agentic Pipelines</div>
+        <div class="pub-authors">Ramesh Manuvinakurike, Emanuel Moss, Elizabeth Watkins, <strong>Saurav Sahay</strong>, et al.</div>
+        <span class="chip">HCXAI @ CHI · 2025</span>
+        <a href="https://arxiv.org/abs/2505.00875" target="_blank" rel="noopener" class="pub-link">↗ ArXiv</a>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Decoding Biases: Automated Methods and LLM Judges for Gender Bias Detection in Language Models</div>
+        <div class="pub-authors">Shachi H Kumar, <strong>Saurav Sahay</strong>, Sahisnu Mazumder, Eda Okur, Ramesh Manuvinakurike, et al.</div>
+        <span class="chip">NeurIPS 2024 · Red Teaming GenAI Workshop</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Introducing v0.5 of the AI Safety Benchmark from MLCommons</div>
+        <div class="pub-authors">Bertie Vidgen, <strong>Saurav Sahay</strong>, et al.</div>
+        <span class="chip">ArXiv 2404.12241 · 2024</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Systematic Analysis for Pretrained Language Model Priming for Parameter-Efficient Fine-tuning</div>
+        <div class="pub-authors">Shih-Cheng Huang, Shih-Heng Wang, Min-Han Shih, <strong>Saurav Sahay</strong>, Hung-yi Lee</div>
+        <span class="chip">NAACL · 2024</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Learning from Red Teaming: Gender Bias Provocation and Mitigation in Large Language Models</div>
+        <div class="pub-authors">Hsuan Su, Cheng-Chu Farn, Shachi H Kumar, <strong>Saurav Sahay</strong>, Shang-Tse Chen, Hung-yi Lee</div>
+        <span class="chip">ArXiv 2310.11079 · 2023</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Low Rank Fusion based Transformers for Multimodal Sequences</div>
+        <div class="pub-authors"><strong>Saurav Sahay</strong>, Eda Okur, Shachi H Kumar, Lama Nachman</div>
+        <span class="chip">ACL · Human Multimodal Language Workshop · 2020</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Technology Solutions to Combat Online Harassment</div>
+        <div class="pub-authors">George Kennedy, Andrew McCollough, Edward Dixon, Alexei Bastidas, John Ryan, Chris Loo, <strong>Saurav Sahay</strong></div>
+        <span class="chip">ACL · Workshop on Abusive Language Online · 2017</span>
+      </div>
+
+    </div>
+
+    <div style="margin-top:1.75rem; display:flex; gap:.875rem; flex-wrap:wrap;">
+      <!-- UPDATE: replace YOUR_SCHOLAR_ID below -->
+      <a href="https://scholar.google.com/citations?hl=en&user=A_Kss_UAAAAJ" target="_blank" rel="noopener" class="btn btn-ghost">
+        View all 30+ publications on Google Scholar ↗
+      </a>
+    </div>
+
+    <!-- PATENTS -->
+    <div style="margin-top:3.75rem;">
+      <p class="sec-label">Patents</p>
+      <div style="height:.75rem;"></div>
+      <div class="patent-list">
+        <div class="patent-row">
+          <span class="patent-num">US 10,380,256</span>
+          <span class="patent-txt">Technologies for Automated Context-Aware Media Curation — Nachman, <strong>Sahay</strong> et al. (2019)</span>
+        </div>
+        <div class="patent-row">
+          <span class="patent-num">US 9,781,392</span>
+          <span class="patent-txt"><strong>Saurav Sahay</strong>, Nachman et al. — Facilitating Personal Assistance for Curation of Multimedia and Generation of Stories (2017)</span>
+        </div>
+        <div class="patent-row">
+          <span class="patent-num">WO2016105803</span>
+          <span class="patent-txt">Pereg, Wasserblat, <strong>Sahay</strong> et al. — Hybrid Techniques for Sentiment Analysis (2016)</span>
+        </div>
+        <div class="patent-row">
+          <span class="patent-num">US20180174244</span>
+          <span class="patent-txt">Savage, Nachman, <strong>Sahay</strong>, Raffa — Socially and Contextually Appropriate Recommendation Systems (2015)</span>
+        </div>
+        <div class="patent-row">
+          <span class="patent-num">US 9,948,689</span>
+          <span class="patent-txt">Savage, Wouhaybi, Nachman, <strong>Sahay</strong> — Online Social Persona Management (2014)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE -->
+    <div style="margin-top:3.5rem;">
+      <p class="sec-label">Program Committee &amp; Community Service</p>
+      <div style="height:.75rem;"></div>
+      <div class="tag-cloud">
+        <span class="tag">ICML</span>
+        <span class="tag">NeurIPS</span>
+        <span class="tag">ICLR</span>
+        <span class="tag">ACL</span>
+        <span class="tag">EMNLP</span>
+        <span class="tag">COLM</span>
+        <span class="tag">MLCommons AIRR</span>
+        <span class="tag">Intel Responsible AI Council</span>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div style="margin-top:3.5rem;">
+      <p class="sec-label">Technical Skills</p>
+      <div style="height:.75rem;"></div>
+      <div class="skills-grid">
+        <div class="skill-block">
+          <div class="skill-label">Languages</div>
+          <div class="skill-items">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Java</span>
+            <span class="skill-pill">C++</span>
+            <span class="skill-pill">C</span>
+            <span class="skill-pill">Perl</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-label">Frameworks</div>
+          <div class="skill-items">
+            <span class="skill-pill">PyTorch</span>
+            <span class="skill-pill">Transformers</span>
+            <span class="skill-pill">vLLM</span>
+            <span class="skill-pill">OpenVINO</span>
+            <span class="skill-pill">Ray</span>
+            <span class="skill-pill">Rasa</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-label">Tools</div>
+          <div class="skill-items">
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">Kubernetes</span>
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">Slurm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WRITING ══════════════════════════════════════════════ -->
+<section id="writing">
+  <div class="wrap fadein">
+    <p class="sec-label">Thought Leadership</p>
+    <h2 class="sec-title">Writing &amp; Commentary</h2>
+    <div class="rule"></div>
+    <p class="sec-desc">On AI Safety, bias in language models, and responsible development of intelligent systems.</p>
+    <a href="https://community.intel.com/t5/Blogs/Tech-Innovation/Artificial-Intelligence-AI/Understanding-and-Addressing-Bias-in-Conversational-AI/post/1661605"
+       target="_blank" rel="noopener" class="writing-card">
+      <div class="w-icon">✍️</div>
+      <div>
+        <div class="w-title">Understanding and Addressing Bias in Conversational AI</div>
+        <div class="w-desc">
+          An in-depth exploration of the challenges in building fair, transparent, and safe conversational
+          AI systems — covering sources of bias in language models, mitigation strategies, and practical
+          approaches for responsible deployment. Published on Intel Technology Community.
+        </div>
+        <span class="w-tag">Intel Technology Community Portal</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ EDUCATION ════════════════════════════════════════════ -->
+<section id="education">
+  <div class="wrap fadein">
+    <p class="sec-label">Education</p>
+    <h2 class="sec-title">Academic Background</h2>
+    <div class="rule"></div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-deg">Ph.D., Computer Science</div>
+        <div class="edu-sch">Georgia Institute of Technology</div>
+        <div class="edu-yr">2004 – 2011 &nbsp;·&nbsp; Atlanta, Georgia</div>
+        <div class="edu-note">Thesis: Socio-Semantic Conversational Information Access</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-deg">M.S., Computer Science</div>
+        <div class="edu-sch">Georgia Institute of Technology</div>
+        <div class="edu-yr">2004 – 2009 &nbsp;·&nbsp; Atlanta, Georgia</div>
+        <div class="edu-note">Also completed coursework for the MS Bioinformatics program</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ══════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="wrap fadein">
+    <p class="sec-label">Connect</p>
+    <h2 class="sec-title">Get in Touch</h2>
+    <div class="rule"></div>
+    <p class="sec-desc">Open to conversations about AI Safety, Responsible AI, Agentic systems, research collaborations, and speaking opportunities.</p>
+    <div class="contact-grid">
+      <a href="https://www.linkedin.com/in/sauravsahay/" target="_blank" rel="noopener" class="contact-link">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        linkedin.com/in/sauravsahay
+      </a>
+      <a href="https://twitter.com/sauravsahay" target="_blank" rel="noopener" class="contact-link">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        @sauravsahay
+      </a>
+      <a href="mailto:sauravsahay@gmail.com" class="contact-link">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        sauravsahay@gmail.com
+      </a>
+      <!-- UPDATE: replace YOUR_SCHOLAR_ID below -->
+      <a href="https://scholar.google.com/citations?hl=en&user=A_Kss_UAAAAJ" target="_blank" rel="noopener" class="contact-link">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
+        Google Scholar
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-name">Saurav Sahay</div>
+  <div class="footer-sub">Principal AI Research Scientist &amp; Engineering Manager &nbsp;·&nbsp; Santa Clara, CA</div>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fadein').forEach(el => io.observe(el));
+
+  // Nav active highlight
+  const secs = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  const navIo = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => {
+          l.style.color = l.getAttribute('href') === '#' + e.target.id ? 'var(--t1)' : '';
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+  secs.forEach(s => navIo.observe(s));
+</script>
+</body>
+</html>
