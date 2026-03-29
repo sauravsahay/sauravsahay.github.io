@@ -352,6 +352,63 @@
     .footer-name { font-size: 1rem; font-weight: 700; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: .35rem; }
     .footer-sub { font-size: .78rem; color: var(--t3); }
 
+    /* ─── BLOG ──────────────────────────────────────────── */
+    .blog-article {
+      background: var(--card); border: 1px solid var(--border-s);
+      border-radius: 14px; padding: 2.5rem 2.5rem 2rem;
+      max-width: 780px;
+    }
+    .blog-title {
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 800; line-height: 1.25; letter-spacing: -.02em;
+      margin-bottom: .5rem;
+    }
+    .blog-subtitle {
+      font-size: .9rem; color: var(--t2); font-style: italic;
+      line-height: 1.7; margin-bottom: 1.5rem;
+    }
+    .blog-meta {
+      font-family: 'JetBrains Mono', monospace; font-size: .75rem;
+      color: var(--t3); margin-bottom: 2rem;
+      padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-s);
+    }
+    .blog-article h3 {
+      font-size: 1.15rem; font-weight: 700; margin: 2rem 0 .75rem;
+      letter-spacing: -.01em;
+    }
+    .blog-article p {
+      font-size: .9rem; color: var(--t2); line-height: 1.8;
+      margin-bottom: 1.1rem;
+    }
+    .blog-article p strong { color: var(--t1); }
+    .blog-article a.blog-link {
+      color: var(--accent-l); text-decoration: underline;
+      text-underline-offset: 2px; transition: color .2s;
+    }
+    .blog-article a.blog-link:hover { color: #fff; }
+    .blog-article figure {
+      margin: 1.75rem 0; border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border-s); background: var(--bg);
+    }
+    .blog-article figure img {
+      width: 100%; display: block;
+    }
+    .blog-article figcaption {
+      font-size: .78rem; color: var(--t3); line-height: 1.6;
+      padding: .75rem 1rem; font-style: italic;
+    }
+    .blog-hr {
+      border: none; height: 1px;
+      background: var(--border-s); margin: 2rem 0;
+    }
+    .blog-bio {
+      font-size: .82rem; color: var(--t3); font-style: italic;
+      line-height: 1.7; margin-top: 1.5rem;
+    }
+    @media (max-width: 760px) {
+      .blog-article { padding: 1.5rem 1.25rem 1.25rem; }
+    }
+
     /* ─── SCROLL ANIMATIONS ──────────────────────────────── */
     .fadein { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
     .fadein.vis { opacity: 1; transform: translateY(0); }
@@ -380,6 +437,7 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#writing">Writing</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -788,6 +846,94 @@
         <span class="w-tag">Intel Technology Community Portal</span>
       </div>
     </a>
+  </div>
+</section>
+
+<!-- ═══ BLOG ════════════════════════════════════════════════ -->
+<section id="blog">
+  <div class="wrap fadein">
+    <p class="sec-label">Blog</p>
+    <h2 class="sec-title">Perspectives &amp; Reflections</h2>
+    <div class="rule"></div>
+
+    <article class="blog-article">
+      <h2 class="blog-title">From Low-Rank Fusion to LoRA: When Old Ideas Find New Life</h2>
+      <p class="blog-subtitle">How a 2020 applied research paper on multimodal emotion understanding shares its mathematical DNA with today's biggest AI breakthroughs &mdash; and why the scientific community has more buried treasure than we think.</p>
+      <div class="blog-meta">March 2025 &nbsp;&middot;&nbsp; 8 min read</div>
+
+      <p>In 2020, my co-authors and I at Intel Labs published a modest paper: <a href="https://arxiv.org/abs/2007.02038" target="_blank" rel="noopener" class="blog-link">Low Rank Fusion based Transformers for Multimodal Sequences</a>. We weren't trying to change the world. We were trying to solve a practical problem: how do you get a model to understand human emotion by fusing what someone <em>says</em>, how they <em>sound</em>, and what their <em>face</em> does &mdash; without blowing up your parameter count?</p>
+
+      <p>Five years later, I find myself doing a double-take. The core mathematical ideas we used &mdash; low-rank factorization, cross-modal attention, parameter-efficient fusion &mdash; have become the backbone of techniques now powering the generative AI revolution. Not because of our paper, but because these ideas were always good. They just needed the right moment.</p>
+
+      <p>This blog isn't a victory lap. It's a reflection on how applied research plants seeds that sometimes bloom in unexpected places &mdash; and a call to dig deeper into the scientific literature for ideas whose time may have finally come.</p>
+
+      <h3>The Problem We Were Solving</h3>
+
+      <p>In 2020, "multimodal AI" meant <em>classification</em>, not generation. We weren't building chatbots that see and hear. We were building systems that could watch a YouTube video and tell you whether the speaker felt happy, sad, or angry &mdash; by jointly processing their facial expressions, vocal tone, and words.</p>
+
+      <p>The dominant approach at the time, the Multimodal Transformer (MulT), used nine parallel transformer models with pairwise cross-modal attention between every combination of modalities. It worked, but it was expensive &mdash; over a million parameters for a classification task.</p>
+
+      <p>Our question was simple: <em>do you really need all of that?</em></p>
+
+      <h3>Low-Rank Fusion: The Core Idea</h3>
+
+      <p>The key insight was that the interaction space between modalities &mdash; the full tensor product of language, audio, and vision representations &mdash; is high-dimensional but has low intrinsic rank. You don't need to compute the entire thing.</p>
+
+      <figure>
+        <img src="blog/figure_p3_1.png" alt="Low Rank Matrix Factorization — instead of computing the expensive full tensor product of three modalities, we decompose it into low-rank modality-specific factors that are multiplied together efficiently." loading="lazy">
+        <figcaption>Figure 2 from our paper: Low Rank Matrix Factorization. The unimodal tensor sequences are decomposed into low-rank modality-specific factors, avoiding the expensive full Cartesian product.</figcaption>
+      </figure>
+
+      <p>We used Low Rank Matrix Factorization (LMF) to approximate the full multimodal interaction tensor using compact, modality-specific factors. This fused representation then served as a hub &mdash; individual modalities would attend to it via cross-modal transformers to enrich their own representations.</p>
+
+      <figure>
+        <img src="blog/figure_p3_3.png" alt="Low Rank Fusion Transformer architecture — our most compact model, where all three modalities attend to the LMF-fused signal through a single crossmodal transformer, followed by one self-attention transformer for prediction." loading="lazy">
+        <figcaption>Figure 4 from our paper: The Low Rank Fusion Transformer (LMF-MulT). Our most compact architecture — individual modalities attend to the fused signal, using far fewer transformers than competing approaches.</figcaption>
+      </figure>
+
+      <p>The result? Comparable performance to MulT with roughly <strong>half the parameters</strong> and <strong>40% faster training</strong>. Not a breakthrough in accuracy &mdash; a breakthrough in efficiency.</p>
+
+      <h3>The Mathematical Thread to LoRA</h3>
+
+      <p>Here's where it gets interesting. In 2021, Hu et al. published <a href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener" class="blog-link">LoRA: Low-Rank Adaptation of Large Language Models</a>, and the technique quickly became the default way to fine-tune large models. The core idea? The weight update matrix during fine-tuning is high-dimensional but has low intrinsic rank. Instead of updating billions of parameters, you learn two small low-rank matrices.</p>
+
+      <p>Sound familiar?</p>
+
+      <p>We applied low-rank factorization to compress the <em>multimodal fusion space</em>. LoRA applies it to compress the <em>weight update space</em>. Different problem, same mathematical soul. The shared insight is that high-dimensional interactions in neural networks are often surprisingly low-rank &mdash; you can approximate them cheaply without losing what matters.</p>
+
+      <p>This wasn't a coincidence. The mathematical machinery traces back through Liu et al.'s 2018 LMF work, and further to classical matrix decomposition techniques. By 2024&ndash;2025, the circle closed further with Tensor LoRA methods (LoRTA, TT-LoRA) that use higher-order tensor decompositions &mdash; the very same family of techniques used in multimodal fusion research &mdash; to compress adaptation across layers and attention heads simultaneously.</p>
+
+      <h3>From Multi-Tower to Single-Tower: A Journey We Started</h3>
+
+      <p>In 2020, multimodal meant multi-tower. Separate encoders for each modality, with engineered bridges between them. Our work was already pushing toward consolidation &mdash; using a fused signal as a central hub to reduce the number of separate transformer stacks.</p>
+
+      <p>Today, the field has completed that journey. Models like Gemini, GPT-4o, and Claude process all modalities through a shared transformer backbone. Vision patches, audio tokens, and text tokens are projected into a unified embedding space, and a single attention mechanism handles the rest. Cross-modal reasoning isn't engineered anymore &mdash; it emerges from scale.</p>
+
+      <p>Our multi-tower architectures feel like artifacts now, but the impulse behind them &mdash; <em>fewer towers, more fusion, less redundancy</em> &mdash; was pointing in exactly the right direction.</p>
+
+      <h3>The Bigger Point: Buried Treasure in the Literature</h3>
+
+      <p>This is the part I care about most. Our paper wasn't foundational work. It was an applied contribution to multimodal sentiment analysis, building on ideas from Tsai et al. and Liu et al. But the mathematical principles we explored turned out to matter far beyond our specific problem.</p>
+
+      <p>This pattern repeats across AI research. Mixture of Experts was proposed in 1991 but didn't go mainstream until Mixtral in 2023. Attention mechanisms existed for years before the Transformer made them universal. Contrastive learning lived in metric learning papers long before CLIP made it transformative.</p>
+
+      <p>And the pattern continues today. Consider DeepSeek's recent Engram work (January 2025), which introduces <em>conditional memory</em> &mdash; a dedicated lookup mechanism for factual knowledge that complements the conditional computation of Mixture-of-Experts. Their key finding: given a fixed compute budget, the optimal architecture allocates ~75&ndash;80% of sparse capacity to dynamic computation (MoE) and ~20&ndash;25% to static memory lookup. The result is dramatic improvements on knowledge-intensive benchmarks with negligible throughput cost.</p>
+
+      <p>Engram is a perfect example of an idea that the broader community should pay attention to: <strong>separating what a model knows from how it thinks</strong>. It's the kind of architectural innovation &mdash; bringing structured domain knowledge into the learning process through dedicated mechanisms rather than forcing everything through the same compute pathway &mdash; that echoes years of prior work on knowledge integration, memory-augmented networks, and domain-adapted architectures.</p>
+
+      <p>How much more of this is sitting in workshop papers, applied research, and domain-specific venues, waiting for the right context to become relevant?</p>
+
+      <h3>Looking Forward</h3>
+
+      <p>The AI field moves fast, but the mathematical foundations evolve more slowly. Low-rank structure, efficient fusion, parameter sharing, domain-aware architectures &mdash; these aren't trends. They're principles. They were useful when we were classifying emotions from YouTube videos, and they're useful now that we're building models that see, hear, and generate.</p>
+
+      <p>If there's one takeaway, it's this: <strong>read more papers</strong>. Not just the ones at the top of the leaderboard, but the applied work, the workshop contributions, the domain-specific explorations. The next LoRA might already be published. It might just be waiting for its moment.</p>
+
+      <hr class="blog-hr">
+
+      <p class="blog-bio">Saurav Sahay was a researcher at Intel Labs' Anticipatory Computing Lab. The original paper, "Low Rank Fusion based Transformers for Multimodal Sequences" (Sahay, Okur, Kumar, Nachman, 2020), is available on <a href="https://arxiv.org/abs/2007.02038" target="_blank" rel="noopener" class="blog-link">arXiv</a>.</p>
+    </article>
+
   </div>
 </section>
 
